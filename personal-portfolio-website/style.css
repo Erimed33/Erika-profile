@@ -1,0 +1,379 @@
+
+* {
+    background-color: #f907fc;
+    background-image: linear-gradient(315deg, #f907fc 0%, #05d6d9 74%);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: sans-serif;
+    min-height: 100vh;
+  }
+  
+ 
+ h1 {
+  color: #111111;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(255,255,255,0.35);
+  padding: 40px 20px 28px;
+  background: none;
+}
+  
+  h3 { text-decoration: underline; background: none; }
+  ul { list-style-type: none; background: none; }
+  ol { font-weight: bold; background: none; }
+  img { display: block; margin-left: 0; height: 200px; background: none; }
+  
+  /* Your p style, but inherit color from container for professional look */
+  p {
+    padding: 20px 0;
+    font-family:'Gill Sans','Gill Sans MT',Calibri,'Trebuchet MS',sans-serif;
+    font-size: 25px;
+    color: inherit;           /* <-- key change (use container’s dark navy) */
+    background: none;
+  }
+  
+  /* Your li style kept */
+  li {
+    margin: 5px 0;
+    color: rgb(70, 13, 155);
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid rgb(128, 0, 128);
+    padding-left: 30px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background: none;
+  }
+  
+
+  .main-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "skills projects"
+      "funfacts funfacts";
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    background: none; /* keep the body gradient, not the grid */
+  }
+  
+  /* ===== Shared card look for all containers ===== */
+  .container {
+    /* This overrides the global gradient for the card boxes */
+    background: #ffffff;            /* clean white card */
+    color: #0b1f3a;                 /* dark navy, professional */
+    border-radius: 12px;
+    padding: 22px 28px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  }
+  
+  /* Ensure children inside cards don’t inherit the gradient bg */
+  .container * {
+    background: transparent;
+    color: inherit;
+  }
+  
+  /* Nice section header underline inside cards */
+  .container h2 {
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid rgba(11,31,58,0.12);
+  }
+  
+  /* ===== Specific containers (now with real rules) ===== */
+  .about-container    { grid-area: about; }
+  .skills-container   { grid-area: skills; }
+  .projects-container { grid-area: projects; }
+  .funfacts-container { grid-area: funfacts; }
+  
+  .contactme-container {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    text-align: center;
+  }
+  
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+  }
+  
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    background: #ffffff;
+  }
+  
+  .contact-icon {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  
+  .contact-info h3 {
+    margin: 0 0 10px 0;
+    color: #0b1f3a;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .contact-info a {
+    color: #1565c0 !important;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .contact-info a:hover {
+    color: #0d47a1 !important;
+    text-decoration: underline;
+  }
+  
+/* Links inside cards */
+a { 
+  color: #1565c0; 
+  text-decoration: none; 
+  transition: all 0.2s ease;
+}
+
+/* Contact links styling */
+.contactme-container a {
+  display: inline-block;
+  background: #f8f9fa;
+  color: #1565c0 !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin: 2px 0;
+}
+
+.contactme-container a:hover {
+  background: #e3f2fd;
+  border-color: #1565c0;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(21, 101, 192, 0.2);
+  text-decoration: none;
+}
+  
+  /* ===== Responsive: stack on small screens ===== */
+  @media (max-width: 900px) {
+    .main-grid {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "skills"
+        "projects"
+        "funfacts";
+    }
+    
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+  /* Make them stack vertically on small screens */
+@media (max-width: 768px) {
+    .about-card {
+      flex-direction: column;     /* stack instead of side by side */
+      align-items: center;
+      text-align: center;
+    }
+  
+    .about-photo {
+      margin-bottom: 20px;
+    }
+    
+    .about-text {
+      padding: 20px;
+    }
+  }
+  .about-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  background: #ffffff; /* white card background */
+  border: 1px solid #e5e7eb; /* neutral light gray border */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  border-radius: 1rem;
+}
+
+.about-photo {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #e5e7eb; /* neutral border */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+}
+
+.about-text {
+  max-width: 600px;
+  padding: 30px;
+  background: #ffffff;            /* white inner card */
+  border: 1px solid #e5e7eb;      /* neutral border */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+}
+
+.about-text h2 {
+  margin-top: 0;
+  color: #040404; /* default black heading */
+  background-color: white;
+  background-color: #faf4f4;
+  padding: 12px;
+}
+
+/* ===== Skills layout ===== */
+.skills-list {
+  margin-top: 20px;
+}
+
+.skills-list h3 {
+  color: #0b1f3a;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 25px 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.skills-list h3:first-child {
+  margin-top: 0;
+}
+
+.skills-list ul {
+  margin: 0 0 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skills-list li {
+  margin: 8px 0;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #495057;
+  transition: all 0.2s ease;
+  position: relative;
+  padding-left: 40px;
+}
+
+.skills-list li:before {
+  content: "▸";
+  color: #1565c0;
+  font-weight: bold;
+  position: absolute;
+  left: 16px;
+  top: 12px;
+}
+
+.skills-list li:hover {
+  background: #e3f2fd;
+  border-color: #1565c0;
+  color: #1565c0;
+  transform: translateX(4px);
+}
+
+/* ===== Projects styling ===== */
+.project-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background: #f9f9f9;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.project-card h3 {
+  margin-top: 0;
+  color: #0b1f3a;
+}
+.project-card p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+.project-card a {
+  display: inline-block;
+  background: linear-gradient(135deg, #1565c0, #1976d2);
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(21, 101, 192, 0.3);
+  border: none;
+}
+.project-card a:hover {
+  background: linear-gradient(135deg, #0d47a1, #1565c0);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(21, 101, 192, 0.4);
+  text-decoration: none;
+}
+.project-card a:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(21, 101, 192, 0.3);
+}
+.more-coming {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+}
+
+/* ===== Fun Facts styling ===== */
+.funfacts-list {
+  list-style: disc;
+  margin-left: 20px;
+}
+.funfacts-list li {
+  border: none;
+  text-align: left;
+  padding: 5px 0;
+  color: #333;
+}
+
+/* ===== Contact tweaks ===== */
+.contactme-container p {
+  margin: 10px 0;
+}
+
+.about-card {
+  margin-bottom: 10px; /* 🧘 gives space below About Me */
+}
+.main-grid {
+  margin-top: 0;        /* just making sure */
+  padding-top: 0;
+}
